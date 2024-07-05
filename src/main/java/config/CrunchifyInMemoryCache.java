@@ -69,7 +69,7 @@ public class CrunchifyInMemoryCache<K, T> {
     }
   }
 
-  public T get(K key, T value) {
+  public T get(K key) {
     synchronized (crunchifyCacheMap) {
       CrunchifyCacheObject c;
       c = (CrunchifyCacheObject) crunchifyCacheMap.get(key);
@@ -85,6 +85,12 @@ public class CrunchifyInMemoryCache<K, T> {
   public void remove(K key) {
     synchronized (crunchifyCacheMap) {
       crunchifyCacheMap.remove(key);
+    }
+  }
+
+  public int size() {
+    synchronized (crunchifyCacheMap) {
+      return crunchifyCacheMap.size();
     }
   }
 
